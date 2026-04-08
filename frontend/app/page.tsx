@@ -270,7 +270,7 @@ export default function Home() {
             </p>
             <div style={{ fontSize: '0.8rem', color: colors.textLight, lineHeight: '1.7' }}>
               <div style={{ marginBottom: '8px' }}>✓ การแสดงออกทางอารมณ์</div>
-              <div style={{ marginBottom: '8px' }}>✓ ท่าที่หัวและสุขภาพบ่า</div>
+              <div style={{ marginBottom: '8px' }}>✓ ท่าทางหัวและสุขภาพบ่า</div>
               <div>✓ การเปิดปิดตา</div>
             </div>
           </div>
@@ -485,7 +485,7 @@ export default function Home() {
               {/* Quick Indicators */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '20px' }}>
                 <QuickIndicator label="สีหน้า" value={result.data.expressions?.smile_probability ?? 0} color={colors.primary} />
-                <QuickIndicator label="ท่าที่" value={Math.max(0, 1 - Math.abs((result.data.head_pose?.pitch ?? 0) / 45))} color={colors.primary} />
+                <QuickIndicator label="ท่าทาง" value={Math.max(0, 1 - Math.abs((result.data.head_pose?.pitch ?? 0) / 45))} color={colors.primary} />
                 <QuickIndicator label="ตา" value={result.data.eye_analysis?.average_openness ?? 0.5} color={colors.primary} />
               </div>
 
