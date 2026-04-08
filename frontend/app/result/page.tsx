@@ -302,10 +302,10 @@ function ResultContent() {
                 <div style={{ display: 'flex', gap: '12px', width: '100%' }}>
                   <button onClick={() => router.push('/')} style={{ flex: 1, padding: '12px', background: '#ECEFF1', color: colors.textLight, border: 'none', borderRadius: '10px', fontSize: '0.9rem', fontWeight: '600', cursor: 'pointer' }}>ย้อนกลับหน้าแรก</button>
                   <button onClick={() => window.print()} style={{ flex: 1, padding: '12px', background: `linear-gradient(135deg, ${colors.primary} 0%, ${colors.primaryDark} 100%)`, color: 'white', border: 'none', borderRadius: '10px', fontSize: '0.9rem', fontWeight: '600', cursor: 'pointer', boxShadow: '0 4px 10px rgba(21, 101, 192, 0.2)' }}>พิมพ์เอกสาร</button>
-                  <button onClick={() => alert("ระบบกำลังเชื่อมต่อผู้เชี่ยวชาญ...")} style={{ flex: 1, padding: '12px', background: `linear-gradient(135deg, ${colors.success} 0%, #1B5E20 100%)`, color: 'white', border: 'none', borderRadius: '10px', fontSize: '0.9rem', fontWeight: '600', cursor: 'pointer', boxShadow: '0 4px 10px rgba(46, 125, 50, 0.2)' }}>Consult Specialist</button>
+                  <button onClick={() => alert("ระบบกำลังเชื่อมต่อผู้เชี่ยวชาญ...")} style={{ flex: 1, padding: '12px', background: `linear-gradient(135deg, ${colors.primary} 0%, ${colors.primaryDark} 100%)`, color: 'white', border: 'none', borderRadius: '10px', fontSize: '0.9rem', fontWeight: '600', cursor: 'pointer', boxShadow: '0 4px 10px rgba(21, 101, 192, 0.2)' }}>Consult Specialist</button>
                 </div>
                 {depressionRisk.score > 33 && (
-                  <button onClick={() => setShowAssessment(true)} style={{ width: '100%', padding: '14px', background: `linear-gradient(135deg, ${colors.warning} 0%, #E65100 100%)`, color: 'white', border: 'none', borderRadius: '10px', fontSize: '0.95rem', fontWeight: '700', cursor: 'pointer', boxShadow: '0 4px 15px rgba(245, 124, 0, 0.3)', animation: 'pulse 2s infinite' }}>ทำแบบประเมินความเสี่ยงซึมเศร้าเพิ่มเติม →</button>
+                  <button onClick={() => setShowAssessment(true)} style={{ width: '100%', padding: '14px', background: `linear-gradient(135deg, ${colors.primary} 0%, ${colors.primaryDark} 100%)`, color: 'white', border: 'none', borderRadius: '10px', fontSize: '0.95rem', fontWeight: '700', cursor: 'pointer', boxShadow: '0 4px 15px rgba(21, 101, 192, 0.3)', animation: 'pulse 2s infinite' }}>ทำแบบประเมินความเสี่ยงซึมเศร้าเพิ่มเติม →</button>
                 )}
              </div>
           </div>
