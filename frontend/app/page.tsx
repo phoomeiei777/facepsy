@@ -27,6 +27,7 @@ export default function Home() {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [scanStatus, setScanStatus] = useState<'ready' | 'scanning' | 'success' | 'no-face'>('ready');
   const [scanSeconds, setScanSeconds] = useState(0);
+  const [mounted, setMounted] = useState(false);
 
   // Bangkok Hospital Colors
   const colors = {
@@ -40,6 +41,11 @@ export default function Home() {
     text: '#1A237E',
     textLight: '#546E7A'
   };
+
+  // Mark component as mounted (fixes hydration mismatch with currentTime)
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Compute risk factors from analysis data
   const computeRiskFactors = (): string[] => {
@@ -139,6 +145,10 @@ export default function Home() {
 
       if (data.success && data.data?.face_detected) {
         setScanStatus('success');
+        // Save results to sessionStorage before navigating
+        console.log('💾 Saving to sessionStorage:', data.data);
+        sessionStorage.setItem('facepsy_analysis_result', JSON.stringify(data.data));
+        console.log('✅ Saved. SessionStorage content:', sessionStorage.getItem('facepsy_analysis_result'));
       } else {
         setScanStatus('no-face');
         setError('ไม่พบใบหน้า กรุณาลองใหม่');
@@ -215,8 +225,12 @@ export default function Home() {
           </div>
         </div>
         <div style={{ textAlign: 'right', color: 'white' }}>
-          <div style={{ fontSize: '2rem', fontWeight: '300' }}>{time.hours}:{time.minutes}<span style={{ fontSize: '1rem', opacity: 0.8 }}>:{time.seconds}</span></div>
-          <div style={{ fontSize: '0.85rem', opacity: 0.8 }}>{formatThaiDate(currentTime)}</div>
+          {mounted && (
+            <>
+              <div style={{ fontSize: '2rem', fontWeight: '300' }}>{time.hours}:{time.minutes}<span style={{ fontSize: '1rem', opacity: 0.8 }}>:{time.seconds}</span></div>
+              <div style={{ fontSize: '0.85rem', opacity: 0.8 }}>{formatThaiDate(currentTime)}</div>
+            </>
+          )}
         </div>
       </div>
 
